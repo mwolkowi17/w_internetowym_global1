@@ -1,12 +1,15 @@
 <script setup lang="ts">
+import { useMainViewStore } from '../stores/mainViewStore'
 
+const storeMainView = useMainViewStore();
 </script>
 
 <template>
     <div class="tlo flex items-center justify-center">
         <h1 class="sr-only">W interntowym labiryncie</h1>
-        <button
-            class="cursor-pointer my-button w-104 h-40 bg-gray-100 transform translate-y-35 font-['Proxima Nova Condensed'] text-8xl text-[#1d3850] font-bold border-4 border-[#00bbff]">
+        <button class="cursor-pointer my-button w-104 h-40 bg-gray-100
+             transform translate-y-35 font-['Proxima Nova Condensed']
+             text-8xl text-[#1d3850] font-bold border-4 border-[#00bbff]" @click="storeMainView.StartGame">
             Start
         </button>
     </div>
