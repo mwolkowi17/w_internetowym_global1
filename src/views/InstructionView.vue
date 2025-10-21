@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import {useMainViewStore} from '../stores/mainViewStore'
+
+const storeMainView = useMainViewStore()
 const textToDisplay = "Znajdujesz się w Wirtualnej Dżungli - aby ją przejść, musisz odpowiedzieć " +
     " prawidłowo na pytania dotyczące internetu. Gra składa się z dwóch" +
     " poziomów. Rzucasz kostką i posuwasz się do przodu o tyle pól, ile oczek" +
@@ -31,7 +34,7 @@ const textToDisplay4 = ". Powodzenia!"
         </div>
         <button class="cursor-pointer my-button w-xs h-28 bg-gray-100  
             font-['Proxima Nova Condensed'] text-6xl text-[#1d3850]
-             font-bold border-4 border-[#00bbff]">
+             font-bold border-4 border-[#00bbff]" @click="storeMainView.InstructionDalej">
             Dalej
         </button>
     </div>

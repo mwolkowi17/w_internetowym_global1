@@ -6,15 +6,23 @@ export const useMainViewStore = defineStore("mainView", () => {
 
   const ifStartView = ref(true);
   const ifInstructionView = ref(false);
+  const ifLevel1ChoseView = ref(false);
 
   function StartGame() {
     ifStartView.value = false;
     ifInstructionView.value = true;
   }
 
+  function InstructionDalej() {
+    ifInstructionView.value = false;
+    ifLevel1ChoseView.value = true;
+  }
+
   return {
     ifStartView,
     ifInstructionView,
+    ifLevel1ChoseView,
     StartGame,
+    InstructionDalej,
   };
 });
