@@ -4,9 +4,10 @@ import { ref } from "vue";
 export const useMainViewStore = defineStore("mainView", () => {
   //sterowanie widokami gry
 
-  const ifStartView = ref(true);
+  const ifStartView = ref(false);
   const ifInstructionView = ref(false);
   const ifLevel1ChoseView = ref(false);
+  const ifGameView1 = ref(true);
 
   function StartGame() {
     ifStartView.value = false;
@@ -22,6 +23,7 @@ export const useMainViewStore = defineStore("mainView", () => {
     ifStartView,
     ifInstructionView,
     ifLevel1ChoseView,
+    ifGameView1,
     StartGame,
     InstructionDalej,
   };
