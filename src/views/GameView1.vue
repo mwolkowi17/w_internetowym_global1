@@ -8,7 +8,7 @@
       :left-position="storeGame1.pionek_left"
     />
     <SzanseSection />
-    <ButtonRzuc />
+    <ButtonRzuc @click="storeGame1.kostka_click" />
     <Kostka :top-position="'687px'" :left-position="'1549px'" />
   </div>
 </template>
