@@ -10,6 +10,7 @@
     <SzanseSection />
     <ButtonRzuc @click="storeGame1.kostka_click" />
     <Kostka :top-position="'687px'" :left-position="'1549px'" />
+    <QuizComponent v-if="storeGame1.if_widok_quizz1" />
   </div>
 </template>
 
@@ -22,6 +23,7 @@ import Pionek from "../components/Pionek.vue";
 import SzanseSection from "../components/SzanseSection.vue";
 import ButtonRzuc from "../components/ButtonRzuc.vue";
 import Kostka from "../components/Kostka.vue";
+import QuizComponent from "../components/QuizComponent.vue";
 
 const storeGame1 = useGameStore();
 </script>

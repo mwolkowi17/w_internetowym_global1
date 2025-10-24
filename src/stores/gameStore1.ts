@@ -34,16 +34,13 @@ export const useGameStore = defineStore("GameStore", () => {
   //informacja o ruchu gracza
   const if_ruch_gracza = ref(false);
 
-  //widoczność kostki
-  const if_widok_kostki = ref(false);
-
   //widoczność planszy pułapka
   const if_widok_pulapki = ref(false);
 
   //widoczność planszy quizz1
-  const if_widok_quizz1 = ref(false);
+  //const if_widok_quizz1 = ref(false);
   //roboczo do edycji pytań
-  //const if_widok_quizz1 = ref(true);
+  const if_widok_quizz1 = ref(true);
 
   //roboczo do edycji pytań
   //const krok_gracz1_na_planszy = ref(15);
@@ -76,7 +73,7 @@ export const useGameStore = defineStore("GameStore", () => {
     //========================================================================================
     let i = 0; //  set your counter to 0
     //========================================================================================
-    if_widok_kostki.value = true;
+
     console.log("rzut");
 
     //funkcjonalnosc ograniczająca ilośc wpadek

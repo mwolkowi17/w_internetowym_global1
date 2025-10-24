@@ -17,6 +17,6 @@ const props = defineProps({ topPosition: Number, leftPosition: Number });
   height: 116px;
   width: 116px;
   position: absolute;
-  z-index: 3;
+  /* z-index: 3; */
 }
 </style>
