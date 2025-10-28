@@ -9,11 +9,13 @@
         :miejsce-naplanszy="props.miejsceNaPlanszy"
         :nr-zestawu="0"
         :nr-odpowiedzi="0"
+        :czy-krzyzyk-wysw="storeQuizz.ifKrzyzyk1Visible"
       />
       <AnswerSingle
         :miejsce-naplanszy="props.miejsceNaPlanszy"
         :nr-zestawu="0"
         :nr-odpowiedzi="1"
+        :czy-krzyzyk-wysw="storeQuizz.ifKrzyzyk2Visible"
       />
       <BlueButton
         class="my-button mt-12 ml-12"

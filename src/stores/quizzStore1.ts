@@ -10,6 +10,9 @@ export const useQuizzStore = defineStore("QuizzStore1", () => {
   const buzka1image = new URL("../assets/buzka1.png", import.meta.url).href;
   const malpa1image = new URL("../assets/malpa1.png", import.meta.url).href;
 
+  const ifKrzyzyk1Visible = ref(false);
+  const ifKrzyzyk2Visible = ref(false);
+
   const pytanieToDisplay = (miejsce: any) => {
     let textToDisplayPytanie;
     if (miejsce === 1) {
@@ -59,6 +62,8 @@ export const useQuizzStore = defineStore("QuizzStore1", () => {
 
   return {
     quizz_assets_data,
+    ifKrzyzyk1Visible,
+    ifKrzyzyk2Visible,
     pytanieToDisplay,
   };
 });

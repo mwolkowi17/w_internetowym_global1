@@ -1,8 +1,18 @@
 <template>
   <li class="mb-[5px]">
     <div class="flex items-center px-[0.5rem] py-[1rem]">
-      <span class="krzyzyk"> </span>
-      <span class="w-[81px] h-[81px] border-solid border-[#1d3850] border-2">
+      <span
+        class="krzyzyk"
+        :class="{
+          'krzyzyk-visible': czyKrzyzykWysw,
+          'krzyzyk-hidden': !czyKrzyzykWysw,
+        }"
+      >
+      </span>
+      <span
+        class="my-button w-[81px] h-[81px] border-solid border-[#1d3850] border-2"
+        @click="Zaznaczenie"
+      >
       </span>
       <span
         class="ml-6 font-['Proxima Nova Condensed'] text-[#1d3850] font-semibold text-[42px]"
@@ -24,7 +34,21 @@ const props = defineProps<{
   nrOdpowiedzi: number;
   nrZestawu: number;
   miejsceNaplanszy: number;
+  czyKrzyzykWysw: boolean;
 }>();
+
+function Zaznaczenie() {
+  console.log(props.nrOdpowiedzi);
+  if (props.nrOdpowiedzi === 0) {
+    console.log("Zaznaczono odpwiedź nr 1");
+    storeQuizz.ifKrzyzyk1Visible = true;
+    storeQuizz.ifKrzyzyk2Visible = false;
+  } else {
+    console.log("Zaznaczono odpwiedź nr 2");
+    storeQuizz.ifKrzyzyk1Visible = false;
+    storeQuizz.ifKrzyzyk2Visible = true;
+  }
+}
 </script>
 <style scoped>
 .krzyzyk {
@@ -34,7 +58,14 @@ const props = defineProps<{
   height: 73px;
   width: 73px;
   position: absolute;
-  visibility: hidden;
+
   z-index: 3;
+}
+.krzyzyk-visible {
+  visibility: visible;
+}
+
+.krzyzyk-hidden {
+  visibility: hidden;
 }
 </style>
