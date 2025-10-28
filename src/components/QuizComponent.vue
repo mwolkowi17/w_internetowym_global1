@@ -1,21 +1,38 @@
 <template>
   <div class="planszaQuizz1">
     <p
-      class="absolute top-[244px] left-[205px] font-['Proxima Nova Condensed'] text-[#1d3850] font-semibold text-[42px]"
-    >
-      {{ storeQuizz.quizz_assets_data.tab_quizz[0]?.tresc }}
-    </p>
+      class="absolute inline-block whitespace-nowrap top-[244px] left-[205px] font-['Proxima Nova Condensed'] text-[#1d3850] font-semibold text-[42px]"
+      v-html="storeQuizz.pytanieToDisplay(props.miejsceNaPlanszy)"
+    ></p>
     <ul class="absolute block left-[200px] top-[360px] list-none">
-      <AnswerSingle :nr-zestawu="0" :nr-odpowiedzi="0" />
-      <AnswerSingle :nr-zestawu="0" :nr-odpowiedzi="1" />
+      <AnswerSingle
+        :miejsce-naplanszy="props.miejsceNaPlanszy"
+        :nr-zestawu="0"
+        :nr-odpowiedzi="0"
+      />
+      <AnswerSingle
+        :miejsce-naplanszy="props.miejsceNaPlanszy"
+        :nr-zestawu="0"
+        :nr-odpowiedzi="1"
+      />
+      <BlueButton
+        class="my-button mt-12 ml-12"
+        :width="'394px'"
+        :height="'87px'"
+        :text="'Sprawdź odpowiedź'"
+        :font-size="'37px'"
+      />
     </ul>
   </div>
 </template>
 <script setup lang="ts">
 import { useQuizzStore } from "../stores/quizzStore1";
 import AnswerSingle from "./AnswerSingle.vue";
+import BlueButton from "./BlueButton.vue";
 
 const storeQuizz = useQuizzStore();
+
+const props = defineProps<{ miejsceNaPlanszy: number }>();
 </script>
 <style scoped>
 .planszaQuizz1 {
@@ -27,5 +44,30 @@ const storeQuizz = useQuizzStore();
   position: absolute;
   left: 0px;
   top: 100px;
+}
+
+.pytanie1:deep(.buzka2) {
+  position: relative;
+  /* top: 2px;
+   left: 555px; */
+  margin-right: 0.2em;
+  margin-left: 0.2em;
+  margin-top: -0.3em;
+  margin-bottom: -0.7em;
+}
+
+.pytanie1:deep(.malpa2) {
+  position: relative;
+  /* left: 318px; */
+  margin-right: 0.2em;
+  margin-left: 0.2em;
+  margin-bottom: -0.4em;
+}
+
+.pytanie1:deep(.malpa3) {
+  position: relative;
+  margin-right: 0.2em;
+  margin-left: 0.2em;
+  margin-bottom: -0.4em;
 }
 </style>

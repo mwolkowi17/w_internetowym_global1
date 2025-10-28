@@ -21,6 +21,8 @@ export const useGameStore = defineStore("GameStore", () => {
 
   //pozycja startowa gracza nr 1
   const krok_gracz1_na_planszy = ref(0);
+  //roboczo do edycji pytań
+  //const krok_gracz1_na_planszy = ref(1);
 
   //zdefinowanie pozycji (mapy wszystkich pozycji) gracza nr 1
   const pozycje_pionka_gracza1 = new PawnMaps().pionek_gracza1;
@@ -38,9 +40,9 @@ export const useGameStore = defineStore("GameStore", () => {
   const if_widok_pulapki = ref(false);
 
   //widoczność planszy quizz1
-  //const if_widok_quizz1 = ref(false);
+  const if_widok_quizz1 = ref(false);
   //roboczo do edycji pytań
-  const if_widok_quizz1 = ref(true);
+  //const if_widok_quizz1 = ref(true);
 
   //roboczo do edycji pytań
   //const krok_gracz1_na_planszy = ref(15);

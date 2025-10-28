@@ -8,11 +8,8 @@
         class="ml-6 font-['Proxima Nova Condensed'] text-[#1d3850] font-semibold text-[42px]"
       >
         {{
-          //   storeQuizz.quizz_assets_data?.tab_quizz?.[props.nrZestawu]
-          //     ?.odpowiedz_text?.[props.nrOdpowiedzi] ?? ""
-          storeQuizz.quizz_assets_data.pokaz_zadanie_2(2)?.odpowiedz_text?.[
-            props.nrZestawu
-          ]?.[props.nrOdpowiedzi] ?? ""
+          storeQuizz.quizz_assets_data.pokaz_zadanie_2(props.miejsceNaplanszy)
+            ?.odpowiedz_text?.[props.nrZestawu]?.[props.nrOdpowiedzi] ?? ""
         }}
       </span>
     </div>
@@ -26,6 +23,7 @@ const storeQuizz = useQuizzStore();
 const props = defineProps<{
   nrOdpowiedzi: number;
   nrZestawu: number;
+  miejsceNaplanszy: number;
 }>();
 </script>
 <style scoped>
@@ -37,6 +35,6 @@ const props = defineProps<{
   width: 73px;
   position: absolute;
   visibility: hidden;
-  z-index: 1;
+  z-index: 3;
 }
 </style>

@@ -10,7 +10,10 @@
     <SzanseSection />
     <ButtonRzuc @click="storeGame1.kostka_click" />
     <Kostka :top-position="'687px'" :left-position="'1549px'" />
-    <QuizComponent v-if="storeGame1.if_widok_quizz1" />
+    <QuizComponent
+      v-if="storeGame1.if_widok_quizz1"
+      :miejsce-na-planszy="storeGame1.krok_gracz1_na_planszy"
+    />
   </div>
 </template>
 

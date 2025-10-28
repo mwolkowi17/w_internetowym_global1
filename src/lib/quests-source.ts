@@ -35,7 +35,7 @@ export class Quests {
           ["niebezpieczne", "bezpieczne", 2],
         ],
         odpowiedz: 1,
-        tresc: "Symbol kłódki" + "\xa0 \xa0 \xa0 " + "oznacza połączenie:",
+        tresc: "Symbol kłódki",
       },
       {
         id: 2,
@@ -141,7 +141,7 @@ export class Quests {
   pokaz_zadanie_2(krok_na_planszy: number) {
     console.log(krok_na_planszy);
     for (let n = 0; n <= this.tab_quizz.length; n++) {
-      if (this.tab_quizz[n].id === krok_na_planszy) {
+      if (this.tab_quizz[n]?.id === krok_na_planszy) {
         return this.tab_quizz[n];
       }
     }
