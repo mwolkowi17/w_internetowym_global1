@@ -13,6 +13,12 @@ export const useQuizzStore = defineStore("QuizzStore1", () => {
   const ifKrzyzyk1Visible = ref(false);
   const ifKrzyzyk2Visible = ref(false);
 
+  const czyOdpowiedz1Poprawna = ref(false);
+  const czyOdpowiedz2Poprawna = ref(false);
+
+  const czyOdpowiedz1Zla = ref(false);
+  const czyOdpowiedz2Zla = ref(false);
+
   const pytanieToDisplay = (miejsce: any) => {
     let textToDisplayPytanie;
     if (miejsce === 1) {
@@ -60,10 +66,19 @@ export const useQuizzStore = defineStore("QuizzStore1", () => {
     return textToDisplayPytanie;
   };
 
+  function zestawToDisplay(miejsce: any) {
+    return quizz_assets_data.value.pokaz_zadanie_2(miejsce);
+  }
+
   return {
     quizz_assets_data,
     ifKrzyzyk1Visible,
     ifKrzyzyk2Visible,
+    czyOdpowiedz1Poprawna,
+    czyOdpowiedz1Zla,
+    czyOdpowiedz2Poprawna,
+    czyOdpowiedz2Zla,
     pytanieToDisplay,
+    zestawToDisplay,
   };
 });

@@ -10,7 +10,7 @@
     <SzanseSection />
     <ButtonRzuc @click="storeGame1.kostka_click" />
     <Kostka :top-position="'687px'" :left-position="'1549px'" />
-    <QuizComponent
+    <QuizzView1
       v-if="storeGame1.if_widok_quizz1"
       :miejsce-na-planszy="storeGame1.krok_gracz1_na_planszy"
     />
@@ -26,7 +26,7 @@ import Pionek from "../components/Pionek.vue";
 import SzanseSection from "../components/SzanseSection.vue";
 import ButtonRzuc from "../components/ButtonRzuc.vue";
 import Kostka from "../components/Kostka.vue";
-import QuizComponent from "../components/QuizComponent.vue";
+import QuizzView1 from "./QuizzView1.vue";
 
 const storeGame1 = useGameStore();
 </script>

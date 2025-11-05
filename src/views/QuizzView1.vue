@@ -7,13 +7,13 @@
     <ul class="absolute block left-[200px] top-[360px] list-none">
       <AnswerSingle
         :miejsce-naplanszy="props.miejsceNaPlanszy"
-        :nr-zestawu="0"
+        :nr-zestawu="zestawNumber"
         :nr-odpowiedzi="0"
         :czy-krzyzyk-wysw="storeQuizz.ifKrzyzyk1Visible"
       />
       <AnswerSingle
         :miejsce-naplanszy="props.miejsceNaPlanszy"
-        :nr-zestawu="0"
+        :nr-zestawu="zestawNumber"
         :nr-odpowiedzi="1"
         :czy-krzyzyk-wysw="storeQuizz.ifKrzyzyk2Visible"
       />
@@ -29,12 +29,15 @@
 </template>
 <script setup lang="ts">
 import { useQuizzStore } from "../stores/quizzStore1";
-import AnswerSingle from "./AnswerSingle.vue";
-import BlueButton from "./BlueButton.vue";
+import AnswerSingle from "../components/AnswerSingle.vue";
+import BlueButton from "../components/BlueButton.vue";
+import { ref } from "vue";
 
 const storeQuizz = useQuizzStore();
 
 const props = defineProps<{ miejsceNaPlanszy: number }>();
+
+const zestawNumber = ref(Math.floor(Math.random() * 2));
 </script>
 <style scoped>
 .planszaQuizz1 {

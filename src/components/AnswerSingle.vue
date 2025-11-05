@@ -43,10 +43,30 @@ function Zaznaczenie() {
     console.log("Zaznaczono odpwiedź nr 1");
     storeQuizz.ifKrzyzyk1Visible = true;
     storeQuizz.ifKrzyzyk2Visible = false;
+    // storeQuizz.czyOdpowiedz1Poprawna = true;
+    // storeQuizz.czyOdpowiedz2Poprawna = false;
+    if (
+      storeQuizz.quizz_assets_data.tab_quizz[props.nrOdpowiedzi]
+        ?.odpowiedz_text?.[props.nrZestawu]?.[2] === 1
+    ) {
+      console.log("prawidlowa odpowiedz");
+    } else {
+      console.log("zła odpowiedz");
+    }
   } else {
     console.log("Zaznaczono odpwiedź nr 2");
     storeQuizz.ifKrzyzyk1Visible = false;
     storeQuizz.ifKrzyzyk2Visible = true;
+    // storeQuizz.czyOdpowiedz2Poprawna = true;
+    // storeQuizz.czyOdpowiedz1Poprawna = false;
+    if (
+      storeQuizz.quizz_assets_data.tab_quizz[props.nrOdpowiedzi]
+        ?.odpowiedz_text?.[props.nrZestawu]?.[2] === 2
+    ) {
+      console.log("prawidlowa odpowiedz");
+    } else {
+      console.log("zła odpowiedz");
+    }
   }
 }
 </script>
