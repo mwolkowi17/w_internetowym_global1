@@ -45,6 +45,7 @@ function Zaznaczenie() {
     storeQuizz.ifKrzyzyk2Visible = false;
     // storeQuizz.czyOdpowiedz1Poprawna = true;
     // storeQuizz.czyOdpowiedz2Poprawna = false;
+    storeQuizz.ifButtonCheck = true;
     if (
       storeQuizz.quizz_assets_data.tab_quizz[props.nrOdpowiedzi]
         ?.odpowiedz_text?.[props.nrZestawu]?.[2] === 1

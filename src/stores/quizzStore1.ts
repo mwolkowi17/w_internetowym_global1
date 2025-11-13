@@ -19,6 +19,8 @@ export const useQuizzStore = defineStore("QuizzStore1", () => {
   const czyOdpowiedz1Zla = ref(false);
   const czyOdpowiedz2Zla = ref(false);
 
+  const ifButtonCheck = ref(false);
+
   const pytanieToDisplay = (miejsce: any) => {
     let textToDisplayPytanie;
     if (miejsce === 1) {
@@ -70,6 +72,10 @@ export const useQuizzStore = defineStore("QuizzStore1", () => {
     return quizz_assets_data.value.pokaz_zadanie_2(miejsce);
   }
 
+  async function sprawdzOdpwowiedz() {
+    console.log("sprawdź odpowiedź");
+  }
+
   return {
     quizz_assets_data,
     ifKrzyzyk1Visible,
@@ -78,7 +84,9 @@ export const useQuizzStore = defineStore("QuizzStore1", () => {
     czyOdpowiedz1Zla,
     czyOdpowiedz2Poprawna,
     czyOdpowiedz2Zla,
+    ifButtonCheck,
     pytanieToDisplay,
     zestawToDisplay,
+    sprawdzOdpwowiedz,
   };
 });

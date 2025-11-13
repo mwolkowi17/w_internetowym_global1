@@ -23,7 +23,10 @@
         :height="'87px'"
         :text="'Sprawdź odpowiedź'"
         :font-size="'37px'"
+        v-if="storeQuizz.ifButtonCheck"
+        @click="storeQuizz.sprawdzOdpwowiedz"
       />
+      <PlanszaDobrze />
     </ul>
   </div>
 </template>
@@ -31,6 +34,7 @@
 import { useQuizzStore } from "../stores/quizzStore1";
 import AnswerSingle from "../components/AnswerSingle.vue";
 import BlueButton from "../components/BlueButton.vue";
+import PlanszaDobrze from "../components/PlanszaDobrze.vue";
 import { ref } from "vue";
 
 const storeQuizz = useQuizzStore();
