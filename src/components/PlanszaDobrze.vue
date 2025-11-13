@@ -1,7 +1,7 @@
 <template>
   <div
     :style="{ backgroundImage: `url(${bg})` }"
-    class="w-[1212px] h-[533px] bg-[url(../assets/KOMUNIKAT_dobra_odp.png)] absolute -top-[200px] left-[84px]"
+    class="w-[1212px] h-[533px] bg-[url(../assets/KOMUNIKAT_dobra_odp.png)] absolute -top-[180px] -left-[94px]"
   ></div>
 </template>
 <script setup lang="ts">
