@@ -21,6 +21,7 @@ export const useGameStore = defineStore("GameStore", () => {
 
   //pozycja startowa gracza nr 1
   const krok_gracz1_na_planszy = ref(0);
+
   //roboczo do edycji pytań
   //const krok_gracz1_na_planszy = ref(1);
 
