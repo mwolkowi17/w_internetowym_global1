@@ -21,6 +21,12 @@ export const useQuizzStore = defineStore("QuizzStore1", () => {
 
   const ifButtonCheck = ref(false);
 
+  const ifPlanszaDobrze = ref(false);
+  const ifPlanszaZle = ref(false);
+
+  const ifWyswietlDobrze = ref(false);
+  const ifWyswietlZle = ref(false);
+
   const pytanieToDisplay = (miejsce: any) => {
     let textToDisplayPytanie;
     if (miejsce === 1) {
@@ -74,6 +80,13 @@ export const useQuizzStore = defineStore("QuizzStore1", () => {
 
   async function sprawdzOdpwowiedz() {
     console.log("sprawdź odpowiedź");
+    ifKrzyzyk1Visible.value = false;
+    ifKrzyzyk2Visible.value = false;
+    if (ifWyswietlDobrze.value) {
+      ifPlanszaDobrze.value = true;
+    } else {
+      ifPlanszaZle.value = true;
+    }
   }
 
   return {
@@ -85,6 +98,10 @@ export const useQuizzStore = defineStore("QuizzStore1", () => {
     czyOdpowiedz2Poprawna,
     czyOdpowiedz2Zla,
     ifButtonCheck,
+    ifPlanszaDobrze,
+    ifPlanszaZle,
+    ifWyswietlDobrze,
+    ifWyswietlZle,
     pytanieToDisplay,
     zestawToDisplay,
     sprawdzOdpwowiedz,

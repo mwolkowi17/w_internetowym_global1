@@ -26,7 +26,8 @@
         v-if="storeQuizz.ifButtonCheck"
         @click="storeQuizz.sprawdzOdpwowiedz"
       />
-      <PlanszaDobrze />
+      <PlanszaDobrze v-if="storeQuizz.ifPlanszaDobrze" />
+      <PlanszaZle v-if="storeQuizz.ifPlanszaZle" />
     </ul>
   </div>
 </template>
@@ -35,6 +36,7 @@ import { useQuizzStore } from "../stores/quizzStore1";
 import AnswerSingle from "../components/AnswerSingle.vue";
 import BlueButton from "../components/BlueButton.vue";
 import PlanszaDobrze from "../components/PlanszaDobrze.vue";
+import PlanszaZle from "../components/PlanszaZle.vue";
 import { ref } from "vue";
 
 const storeQuizz = useQuizzStore();

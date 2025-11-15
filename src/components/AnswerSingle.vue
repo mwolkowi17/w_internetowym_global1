@@ -51,8 +51,10 @@ function Zaznaczenie() {
         ?.odpowiedz_text?.[props.nrZestawu]?.[2] === 1
     ) {
       console.log("prawidlowa odpowiedz");
+      storeQuizz.ifWyswietlDobrze = true;
     } else {
       console.log("zła odpowiedz");
+      storeQuizz.ifWyswietlDobrze = false;
     }
   } else {
     console.log("Zaznaczono odpwiedź nr 2");
@@ -65,8 +67,10 @@ function Zaznaczenie() {
         ?.odpowiedz_text?.[props.nrZestawu]?.[2] === 2
     ) {
       console.log("prawidlowa odpowiedz");
+      storeQuizz.ifWyswietlDobrze = true;
     } else {
       console.log("zła odpowiedz");
+      storeQuizz.ifWyswietlDobrze = false;
     }
   }
 }
