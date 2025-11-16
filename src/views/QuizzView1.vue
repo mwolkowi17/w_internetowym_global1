@@ -37,13 +37,17 @@ import AnswerSingle from "../components/AnswerSingle.vue";
 import BlueButton from "../components/BlueButton.vue";
 import PlanszaDobrze from "../components/PlanszaDobrze.vue";
 import PlanszaZle from "../components/PlanszaZle.vue";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 
 const storeQuizz = useQuizzStore();
 
 const props = defineProps<{ miejsceNaPlanszy: number }>();
 
 const zestawNumber = ref(Math.floor(Math.random() * 2));
+
+onMounted(() => {
+  storeQuizz.ifButtonCheck = false;
+});
 </script>
 <style scoped>
 .planszaQuizz1 {

@@ -19,7 +19,10 @@
       :font-size="'70px'"
       :width="'301px'"
       :height="'117px'"
-      @click="storeQuizz.ifPlanszaZle = false"
+      @click="
+        storeQuizz.ifPlanszaZle = false;
+        storeGame.if_widok_quizz1 = false;
+      "
     />
   </div>
 </template>
@@ -28,8 +31,10 @@
 import bg from "../assets/KOMUNIKAT_zla_odp.png";
 import BaseButton from "./BaseButton.vue";
 import { useQuizzStore } from "../stores/quizzStore1";
+import { useGameStore } from "../stores/gameStore1";
 
 const storeQuizz = useQuizzStore();
+const storeGame = useGameStore();
 </script>
 
 <style scoped></style>
