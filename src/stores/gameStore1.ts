@@ -38,7 +38,7 @@ export const useGameStore = defineStore("GameStore", () => {
   const if_ruch_gracza = ref(false);
 
   //widoczność planszy pułapka
-  const if_widok_pulapki = ref(false);
+  const if_widok_pulapki = ref(true);
 
   //widoczność planszy quizz1
   const if_widok_quizz1 = ref(false);

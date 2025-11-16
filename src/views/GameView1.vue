@@ -14,6 +14,7 @@
       v-if="storeGame1.if_widok_quizz1"
       :miejsce-na-planszy="storeGame1.krok_gracz1_na_planszy"
     />
+    <TrapView v-if="storeGame1.if_widok_pulapki" />
   </div>
 </template>
 
@@ -27,6 +28,7 @@ import SzanseSection from "../components/SzanseSection.vue";
 import ButtonRzuc from "../components/ButtonRzuc.vue";
 import Kostka from "../components/Kostka.vue";
 import QuizzView1 from "./QuizzView1.vue";
+import TrapView from "./TrapView.vue";
 
 const storeGame1 = useGameStore();
 </script>
