@@ -9,6 +9,13 @@ import { useKostkaStore } from "./kostkaStore";
 
 export const useGameStore = defineStore("GameStore", () => {
   const storeKostka = useKostkaStore();
+
+  //wartość wskazujaca rodzaj pulapki rodzaju pułapki
+  const trapType = ref(0);
+
+  //wartości propsów planszy zasadzka
+  const titleTrap = ref("Zasadzka!");
+  const textTrap = ref("Cofasz się o 2 pola.");
   //pozycja pionka
   const pionek_left = ref(30);
   const pionek_top = ref(330);
@@ -38,7 +45,7 @@ export const useGameStore = defineStore("GameStore", () => {
   const if_ruch_gracza = ref(false);
 
   //widoczność planszy pułapka
-  const if_widok_pulapki = ref(true);
+  const if_widok_pulapki = ref(false);
 
   //widoczność planszy quizz1
   const if_widok_quizz1 = ref(false);
@@ -204,12 +211,13 @@ export const useGameStore = defineStore("GameStore", () => {
           setTimeout(async () => {
             if_widok_pulapki.value = true;
             await nextTick();
-            // titleTrap.value = metodyPomocnicze.pokazTekstPulapki(
-            //   krok_gracz1_na_planszy.value
-            // )[0];
-            // textTrap.value = metodyPomocnicze.pokazTekstPulapki(
-            //   krok_gracz1_na_planszy.value
-            // )[1];
+            const tekst = metodyPomocnicze.pokazTekstPulapki(
+              krok_gracz1_na_planszy.value
+            );
+            if (tekst) {
+              titleTrap.value = tekst[0] ?? titleTrap.value;
+              textTrap.value = tekst[1] ?? textTrap.value;
+            }
             const sound_cofasz = new Audio(
               new URL("../assets/zla_odp.mp3", import.meta.url).href
             );
@@ -236,6 +244,58 @@ export const useGameStore = defineStore("GameStore", () => {
     };
   }
 
+  const koniecPulapki = () => {
+    console.log("koniec pułapki, dawny emiter");
+    console.log(krok_gracz1_na_planszy.value);
+
+    //nowe roziazanie planszy zasadzka - różne efekty po wejściu na pole
+    let oIlePol = trapType.value;
+    console.log(oIlePol);
+
+    const setPionekByIndex = (index: number) => {
+      const pos = pozycje_pionka_gracza1[index] ?? [30, 330];
+      pionek_left.value = pos[0] ?? 30;
+      pionek_top.value = pos[1] ?? 330;
+    };
+
+    if (krok_gracz1_na_planszy.value === 3) {
+      krok_gracz1_na_planszy.value = krok_gracz1_na_planszy.value + 1;
+      ruch_lokalny = ruch_lokalny + 1;
+      console.log(krok_gracz1_na_planszy.value);
+      setPionekByIndex(krok_gracz1_na_planszy.value - 1);
+    }
+    if (krok_gracz1_na_planszy.value === 6) {
+      krok_gracz1_na_planszy.value = krok_gracz1_na_planszy.value - 2;
+      ruch_lokalny = ruch_lokalny - 2;
+      console.log(krok_gracz1_na_planszy.value);
+      setPionekByIndex(krok_gracz1_na_planszy.value - 1);
+    }
+    if (krok_gracz1_na_planszy.value === 8) {
+      krok_gracz1_na_planszy.value = krok_gracz1_na_planszy.value + 2;
+      ruch_lokalny = ruch_lokalny + 2;
+      console.log(krok_gracz1_na_planszy.value);
+      setPionekByIndex(krok_gracz1_na_planszy.value - 1);
+    }
+    if (krok_gracz1_na_planszy.value === 11) {
+      krok_gracz1_na_planszy.value = 0;
+      ruch_lokalny = 0;
+      console.log(krok_gracz1_na_planszy.value);
+      pionek_left.value = 30;
+      pionek_top.value = 330;
+    }
+    if (krok_gracz1_na_planszy.value === 14) {
+      krok_gracz1_na_planszy.value = krok_gracz1_na_planszy.value - 1;
+      ruch_lokalny = ruch_lokalny - 1;
+      console.log(krok_gracz1_na_planszy.value);
+      setPionekByIndex(krok_gracz1_na_planszy.value - 1);
+    }
+
+    // koniec tego rozwiązania
+
+    if_ruch_gracza.value = false;
+    if_rzuc_kostka.value = true;
+  };
+
   return {
     pionek_left,
     pionek_top,
@@ -250,6 +310,9 @@ export const useGameStore = defineStore("GameStore", () => {
     liczba_wyrzucona,
     liczba_wpadek,
     wyrzuconaWartoscKostki,
+    titleTrap,
+    textTrap,
     kostka_click,
+    koniecPulapki,
   };
 });

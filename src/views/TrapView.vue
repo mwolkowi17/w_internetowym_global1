@@ -1,8 +1,8 @@
 <template>
   <div class="pulapka1">
     <div class="info-trap">
-      <h1 class="naglowek">Pułapka</h1>
-      <p class="napis">Cofasz się o dwa pola</p>
+      <h1 class="naglowek">{{ storeGame1.titleTrap }}</h1>
+      <p class="napis">{{ storeGame1.textTrap }}</p>
     </div>
     <BaseButton
       class="my-button mt-4 ml-12"
@@ -10,7 +10,10 @@
       :height="'117px'"
       :text="'Dalej'"
       :font-size="'70px'"
-      @click="storeGame1.if_widok_pulapki = false"
+      @click="
+        storeGame1.if_widok_pulapki = false;
+        storeGame1.koniecPulapki();
+      "
     />
   </div>
 </template>

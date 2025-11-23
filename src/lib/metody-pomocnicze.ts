@@ -19,4 +19,22 @@ export class metodyPomocnicze {
       }
     }
   }
+
+  static pokazTekstPulapki(krokNaPlanszy: number) {
+    if (krokNaPlanszy === 3) {
+      return ["Niespodzianka!", "Idziesz jedno pole do przodu."];
+    }
+    if (krokNaPlanszy === 6) {
+      return ["Zasadzka!", "Cofasz się o dwa pola."];
+    }
+    if (krokNaPlanszy === 8) {
+      return ["Niespodzianka!", "Idziesz dwa pola do przodu."];
+    }
+    if (krokNaPlanszy === 11) {
+      return ["Zasadzka!", "Wracasz na start."];
+    }
+    if (krokNaPlanszy === 14) {
+      return ["Zasadzka!", "Cofasz się o jedno pole."];
+    }
+  }
 }
