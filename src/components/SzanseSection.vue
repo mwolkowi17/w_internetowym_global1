@@ -8,12 +8,16 @@
       Szanse
     </h3>
     <div class="flex felx-row gap-8 mt-4">
-      <img src="../assets/zycie1.png" />
-      <img src="../assets/zycie1.png" />
-      <img src="../assets/zycie1.png" />
+      <img src="../assets/zycie1.png" v-if="storeSzanse.if_szansa1" />
+      <img src="../assets/zycie1.png" v-if="storeSzanse.if_szansa2" />
+      <img src="../assets/zycie1.png" v-if="storeSzanse.if_szansa3" />
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useSzanseStore } from "../stores/szanseStore";
+
+const storeSzanse = useSzanseStore();
+</script>
 <style scoped></style>

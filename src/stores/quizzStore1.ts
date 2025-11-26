@@ -1,8 +1,10 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import { Quests } from "../lib/quests-source";
+import { useGameStore } from "./gameStore1";
 
 export const useQuizzStore = defineStore("QuizzStore1", () => {
+  const gamestore = useGameStore();
   const quizz_assets_data = ref(new Quests());
   //let nr_zestawu = Math.floor(Math.random() * 2);
 
@@ -86,6 +88,7 @@ export const useQuizzStore = defineStore("QuizzStore1", () => {
       ifPlanszaDobrze.value = true;
     } else {
       ifPlanszaZle.value = true;
+      gamestore.odejmijSzanse();
     }
   }
 

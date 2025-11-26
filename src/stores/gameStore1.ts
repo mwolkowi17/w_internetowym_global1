@@ -4,11 +4,14 @@ import { metodyPomocnicze } from "../lib/metody-pomocnicze";
 import { PawnMaps } from "../lib/pawn-maps";
 import { Traps } from "../lib/traps";
 import { useKostkaStore } from "./kostkaStore";
+import { useSzanseStore } from "./szanseStore";
 
 // import { useKostkaStore } from "./kostkaStore";
 
 export const useGameStore = defineStore("GameStore", () => {
   const storeKostka = useKostkaStore();
+
+  const storeSzanse = useSzanseStore();
 
   //wartość wskazujaca rodzaj pulapki rodzaju pułapki
   const trapType = ref(0);
@@ -296,6 +299,26 @@ export const useGameStore = defineStore("GameStore", () => {
     if_rzuc_kostka.value = true;
   };
 
+  const odejmijSzanse = async () => {
+    console.log("odejmij szanse");
+    ilosc_szans.value = ilosc_szans.value - 1;
+
+    console.log("ilosc_szans:" + ilosc_szans.value);
+    //emit('odejmij-gwiazdke')
+    await nextTick();
+    if (ilosc_szans.value === 2) {
+      storeSzanse.if_szansa3 = false;
+    }
+    if (ilosc_szans.value === 1) {
+      storeSzanse.if_szansa2 = false;
+    }
+    if (ilosc_szans.value === 0) {
+      storeSzanse.if_szansa1 = false;
+      console.log("przegrałeś!!!");
+      if_widok_quizz1.value = false;
+    }
+  };
+
   return {
     pionek_left,
     pionek_top,
@@ -314,5 +337,6 @@ export const useGameStore = defineStore("GameStore", () => {
     textTrap,
     kostka_click,
     koniecPulapki,
+    odejmijSzanse,
   };
 });

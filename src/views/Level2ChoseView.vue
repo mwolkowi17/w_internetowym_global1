@@ -9,22 +9,20 @@
       @click="storeMain.LevelOneStart()"
     />
     <BaseButton
+      class="my-button"
       :text="'Poziom 2'"
       :width="'595px'"
       :height="'200px'"
       :font-size="'100px'"
-      disabled
     />
   </div>
 </template>
-
 <script setup lang="ts">
 import BaseButton from "../components/BaseButton.vue";
 import { useMainViewStore } from "../stores/mainViewStore";
 
 const storeMain = useMainViewStore();
 </script>
-
 <style scoped>
 .tlo-level1 {
   background-image: url("../assets/plansza_poziom1_wybor.png");
