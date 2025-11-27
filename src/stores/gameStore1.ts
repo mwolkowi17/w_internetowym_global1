@@ -5,6 +5,7 @@ import { PawnMaps } from "../lib/pawn-maps";
 import { Traps } from "../lib/traps";
 import { useKostkaStore } from "./kostkaStore";
 import { useSzanseStore } from "./szanseStore";
+import { useMainViewStore } from "./mainViewStore";
 
 // import { useKostkaStore } from "./kostkaStore";
 
@@ -12,6 +13,8 @@ export const useGameStore = defineStore("GameStore", () => {
   const storeKostka = useKostkaStore();
 
   const storeSzanse = useSzanseStore();
+
+  const storeMainView = useMainViewStore();
 
   //wartość wskazujaca rodzaj pulapki rodzaju pułapki
   const trapType = ref(0);
@@ -237,6 +240,7 @@ export const useGameStore = defineStore("GameStore", () => {
 
     const wywolanie_sceny_koncowej = () => {
       console.log("wywołanie planszy wyboru etapu nr 2");
+      storeMainView.ifLevel1End = true;
       // if (ifFocusEmitGlobal.value === false) {
       //   emit("koniec-etap1");
       // }
