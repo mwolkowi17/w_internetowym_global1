@@ -320,6 +320,7 @@ export const useGameStore = defineStore("GameStore", () => {
       storeSzanse.if_szansa1 = false;
       console.log("przegrałeś!!!");
       if_widok_quizz1.value = false;
+      storeMainView.ifLose = true;
     }
   };
 
