@@ -8,8 +8,8 @@ export const useMainViewStore = defineStore("mainView", () => {
   const ifInstructionView = ref(false);
   const ifLevel1ChoseView = ref(false);
   const ifLevel2ChoseView = ref(false);
-  const ifGameView1 = ref(true);
-  const ifGameView2 = ref(false);
+  const ifGameView1 = ref(false);
+  const ifGameView2 = ref(true);
   const ifLevel1End = ref(false);
   const ifLose = ref(false);
 

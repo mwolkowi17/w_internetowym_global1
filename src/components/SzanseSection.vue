@@ -11,6 +11,7 @@
       <img src="../assets/zycie1.png" v-if="storeSzanse.if_szansa1" />
       <img src="../assets/zycie1.png" v-if="storeSzanse.if_szansa2" />
       <img src="../assets/zycie1.png" v-if="storeSzanse.if_szansa3" />
+      <img src="../assets/zycie1.png" v-if="storeSzanse.if_szansa4" />
     </div>
   </div>
 </template>

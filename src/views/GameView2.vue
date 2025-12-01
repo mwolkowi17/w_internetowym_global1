@@ -1,7 +1,25 @@
 <template>
-  <div class="tlo2"></div>
+  <div class="tlo2">
+    <StartIcon :top-position="'-18px'" :left-position="'23px'" />
+    <PlanszaImage :top-position="'155px'" :left-position="'0px'" />
+    <MetaIcon :top-position="'482px'" :left-position="'1133px'" />
+    <Pionek
+      :top-position="storeGame1.pionek_top"
+      :left-position="storeGame1.pionek_left"
+    />
+    <SzanseSection />
+    <ButtonRzuc @click="storeGame1.kostka_click" />
+    <Kostka :top-position="'687px'" :left-position="'1549px'" />
+    <TrapView v-if="storeGame1.if_widok_pulapki" />
+    <QuizzView2
+      v-if="storeGame1.if_widok_quizz1"
+      :miejsce-na-planszy="storeGame1.krok_gracz1_na_planszy"
+    />
+  </div>
 </template>
 <script setup lang="ts">
+import { useGameStore2 } from "../stores/gameStore2";
+import { useSzanseStore } from "../stores/szanseStore";
 import StartIcon from "../components/StartIcon.vue";
 import PlanszaImage from "../components/PlanszaImage.vue";
 import MetaIcon from "../components/MetaIcon.vue";
@@ -9,6 +27,17 @@ import Pionek from "../components/Pionek.vue";
 import SzanseSection from "../components/SzanseSection.vue";
 import ButtonRzuc from "../components/ButtonRzuc.vue";
 import Kostka from "../components/Kostka.vue";
+import TrapView from "./TrapView.vue";
+import QuizzView2 from "./QuizzView2.vue";
+import { onMounted } from "vue";
+
+const storeGame1 = useGameStore2();
+
+const storeSzanse = useSzanseStore();
+
+onMounted(() => {
+  storeSzanse.if_szansa4 = true;
+});
 </script>
 <style scoped>
 .tlo2 {

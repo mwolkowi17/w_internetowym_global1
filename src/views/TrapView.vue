@@ -13,6 +13,8 @@
       @click="
         storeGame1.if_widok_pulapki = false;
         storeGame1.koniecPulapki();
+        storeGame2.if_widok_pulapki = false;
+        storeGame2.koniecPulapki();
       "
     />
   </div>
@@ -20,8 +22,10 @@
 <script setup lang="ts">
 import BaseButton from "../components/BaseButton.vue";
 import { useGameStore } from "../stores/gameStore1";
+import { useGameStore2 } from "../stores/gameStore2";
 
 const storeGame1 = useGameStore();
+const storeGame2 = useGameStore2();
 </script>
 <style scoped>
 .pulapka1 {

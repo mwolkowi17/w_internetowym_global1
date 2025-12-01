@@ -1,7 +1,7 @@
 export class Quests2 {
-  kolekcja_assetów;
-  numery_pol_quizz;
-  tab_quizz;
+  kolekcja_assetów: any;
+  numery_pol_quizz: any;
+  tab_quizz: any;
 
   constructor() {
     this.kolekcja_assetów = [
@@ -223,7 +223,7 @@ export class Quests2 {
   }
 
   //funkcja która zwróci komplet astetów i parametrów rozwiązań do zadania
-  pokaz_zadanie(krok_na_planszy) {
+  pokaz_zadanie(krok_na_planszy: any) {
     if (krok_na_planszy === 1) {
       return this.kolekcja_assetów[0];
     }
@@ -256,7 +256,7 @@ export class Quests2 {
     }
   }
 
-  pokaz_zadanie_2(krok_na_planszy) {
+  pokaz_zadanie_2(krok_na_planszy: any) {
     for (let n = 0; n <= this.tab_quizz.length; n++) {
       if (this.tab_quizz[n].id === krok_na_planszy) {
         return this.tab_quizz[n];
